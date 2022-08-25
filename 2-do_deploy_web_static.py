@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """distributes an archive to server using function do_deploy
 """
-from fabric.api import put
+from fabric.api import *
 from os.path import exists
 
 
