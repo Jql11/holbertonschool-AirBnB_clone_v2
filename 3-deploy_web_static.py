@@ -3,7 +3,7 @@
 Fabric script creates and distributes
 an archive to web servers
 """
-from fabric.api import env, put, run
+from fabric.api import env, put, run, local
 import os.path
 import time
 env.hosts = ['54.90.130.172', '52.90.163.197']
