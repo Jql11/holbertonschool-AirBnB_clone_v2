@@ -10,14 +10,15 @@ from models import State
 
 app = Flask(__name__)
 
+
 @app.teardown_appcontext
-def shutdown_session(exception):
+def teardown_db(exception):
     storage.close()
 
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
-    return render_template("7-states_list.html", dict=storage.all(State))
+    return render_template("7-states_list.html", dict=storage.all("State"))
 
 
 if __name__ == "__main__":
