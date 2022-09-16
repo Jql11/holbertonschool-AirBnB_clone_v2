@@ -44,7 +44,7 @@ class DBStorage:
         if cls is not None:
             objects_list = {cls}
         for cls in objects_list:
-            result = self.__session.query(objects_list[cls]).all()
+            result = self.__session.query(cls).all()
             for obj in result:
                 key = "{}.{}".format(obj.__class__.__name__, obj.id)
                 db_dict[key] = obj
@@ -80,4 +80,4 @@ class DBStorage:
 
     def close(self):
         """call remove() method on the private session attribute"""
-        self.__session.remove()
+        self.__session.close()
